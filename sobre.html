@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sobre a API</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        padding: 40px;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        color: #333;
+      }
+      h2 {
+        margin-top: 30px;
+        color: #444;
+      }
+      code {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      pre {
+        background: #eee;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      ul {
+        margin-left: 20px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        background: #1e90ff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sobre a Fake Store API</h1>
+    <p>
+      FakeStoreAPI é uma REST API gratuita que fornece dados fictícios para
+      projetos de e-commerce ou testes de aplicações, sem necessidade de
+      backend. Ideal para ensino, exemplos de código, prototipagem e testes.
+    </p>
+
+    <h2>Exemplo de código</h2>
+    <pre><code>fetch('https://fakestoreapi.com/products/1')
+  .then(res => res.json())
+  .then(json => console.log(json));</code></pre>
+
+    <h2>Recursos disponíveis</h2>
+    <ul>
+      <li><strong>Products</strong>: 20 produtos</li>
+      <li><strong>Cart</strong>: 20 itens</li>
+      <li><strong>Users</strong>: 10 usuários</li>
+      <li><strong>Login</strong>: JWT Token</li>
+    </ul>
+
+    <h2>Rotas disponíveis</h2>
+    <ul>
+      <li>GET /products</li>
+      <li>GET /products/1</li>
+      <li>GET /products/categories</li>
+      <li>GET /products/category/jewelery</li>
+      <li>GET /products?limit=5</li>
+      <li>GET /carts?userId=1</li>
+      <li>POST /products</li>
+      <li>PUT /products/1</li>
+      <li>PATCH /products/1</li>
+      <li>DELETE /products/1</li>
+    </ul>
+
+    <a href="index.html">Voltar ao menu</a>
+  </body>
+</html>
