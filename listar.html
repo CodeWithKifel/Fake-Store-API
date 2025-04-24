@@ -51,21 +51,33 @@
 
     <script>
       async function carregarProdutos() {
-        const res = await fetch("https://fakestoreapi.com/products");
-        const produtos = await res.json();
         const lista = document.getElementById("listaProdutos");
-        produtos.forEach((p) => {
-          const item = document.createElement("li");
-          item.innerHTML = `
-          <img src="${p.image}" alt="${p.title}">
-          <div class="info">
-            <strong>${p.title}</strong><br>
-            R$${p.price.toFixed(2)}<br>
-            <em>${p.category}</em>
-          </div>
-        `;
-          lista.appendChild(item);
-        });
+
+        try {
+          const res = await fetch("https://fakestoreapi.com/products");
+          const produtosApi = await res.json();
+
+          const produtosLocais =
+            JSON.parse(localStorage.getItem("produtos")) || [];
+
+          const todosProdutos = [...produtosApi, ...produtosLocais];
+
+          todosProdutos.forEach((p) => {
+            const item = document.createElement("li");
+            item.innerHTML = `
+        <img src="${p.image}" alt="Imagem do produto: ${p.title}">
+        <div class="info">
+          <strong>${p.title}</strong><br>
+          R$${p.price.toFixed(2)}<br>
+          <em>${p.category}</em>
+        </div>
+      `;
+            lista.appendChild(item);
+          });
+        } catch (err) {
+          lista.innerHTML = "<li>Erro ao carregar os produtos.</li>";
+          console.error(err);
+        }
       }
 
       carregarProdutos();
