@@ -125,6 +125,11 @@
 
           modal.style.display = "flex";
           document.getElementById("produtoForm").reset();
+
+          const produtosLocais =
+            JSON.parse(localStorage.getItem("produtos")) || [];
+          produtosLocais.push(data);
+          localStorage.setItem("produtos", JSON.stringify(produtosLocais));
         });
     </script>
   </body>
